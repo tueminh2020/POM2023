@@ -20,8 +20,9 @@ public class AbstractPages {
 	WebDriverWait waitExplicit;
 	Actions action;
 	By byLocator;
-	long shortTimeout =5;
+	long shortTimeout = 5;
 	long longTimeout = 30;
+
 	public void openAnyUrl(WebDriver driver, String Url) {
 		driver.get(Url);
 	}
@@ -36,6 +37,11 @@ public class AbstractPages {
 
 	public String getPageSource(WebDriver driver) {
 		return driver.getPageSource();
+	}
+
+	public String getTextOfElement(WebDriver driver, String locatorXpath) {
+		element = driver.findElement(By.xpath(locatorXpath));
+		return element.getText();
 	}
 
 	public void backToPreviousPage(WebDriver driver) {
@@ -201,7 +207,7 @@ public class AbstractPages {
 		action = new Actions(driver);
 		action.moveToElement(element).perform();
 	}
-	
+
 	public void sendKeyboardKeyToElement(WebDriver driver, String locatorXpath, Keys key) {
 		element = driver.findElement(By.xpath(locatorXpath));
 		action = new Actions(driver);
@@ -264,6 +270,7 @@ public class AbstractPages {
 		byLocator = By.xpath(locatorXpath);
 		waitExplicit.until(ExpectedConditions.elementToBeClickable(byLocator));
 	}
+
 	public void waitForElementInvisible(WebDriver driver, String locatorXpath) {
 		waitExplicit = new WebDriverWait(driver, longTimeout);
 		byLocator = By.xpath(locatorXpath);
@@ -274,29 +281,5 @@ public class AbstractPages {
 		waitExplicit = new WebDriverWait(driver, longTimeout);
 		waitExplicit.until(ExpectedConditions.alertIsPresent());
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
