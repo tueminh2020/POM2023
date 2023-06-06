@@ -75,7 +75,7 @@ public class AbstractPages {
 		element = driver.findElement(By.xpath(locatorXpath));
 		element.sendKeys(valueToInput);
 	}
-
+		
 	public void selectItemInDropdown(WebDriver driver, String locatorXpath, String value) {
 		element = driver.findElement(By.xpath(locatorXpath));
 		Select select = new Select(element);
@@ -208,12 +208,17 @@ public class AbstractPages {
 		action.moveToElement(element).perform();
 	}
 
-	public void sendKeyboardKeyToElement(WebDriver driver, String locatorXpath, Keys key) {
+	public void sendKeyboardToElement(WebDriver driver, String locatorXpath, Keys key) {
 		element = driver.findElement(By.xpath(locatorXpath));
 		action = new Actions(driver);
-		action.sendKeys(element, key);
+		action.sendKeys(element, key).perform();
 	}
 
+	public void clearTextInElement(WebDriver driver, String locatorXpath)
+	{
+		element = driver.findElement(By.xpath(locatorXpath));
+		element.clear();
+	}
 	public void highlightElement(WebDriver driver, String locatorXpath) {
 		jsExecuter = (JavascriptExecutor) driver;
 		element = driver.findElement(By.xpath(locatorXpath));

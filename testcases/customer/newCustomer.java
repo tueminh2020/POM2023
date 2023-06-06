@@ -1,4 +1,4 @@
-package com.bankguru.account;
+package customer;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +16,7 @@ import pageObjects.loginPageObject;
 import pageObjects.newCustomerPageObject;
 import pageObjects.registerPageObject;
 
-public class Account_Level03_PageObject {
+public class newCustomer {
 	WebDriver driver;
 	String emailInput, customerName, dob, address, city, state, pin, mobile, password;
 	String customerIDLabel, CustomerNameLabel, GenderLabel, AddressLabel, StateLabel, PinLabel, MobileLabel, EmailLabel;

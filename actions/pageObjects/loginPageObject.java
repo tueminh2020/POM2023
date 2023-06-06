@@ -6,13 +6,14 @@ import bankguru.LoginPageUI;
 import commons.AbstractPages;
 
 public class loginPageObject extends AbstractPages {
-
-	public loginPageObject(WebDriver mappingDriver) {
-		this.driver = mappingDriver;
-	}
-
 	private WebDriver driver;
 
+
+	public loginPageObject(WebDriver mappingDriver) {
+		driver = mappingDriver;
+		System.out.println("Login page"+ driver.toString());
+
+	}
 	public boolean isLoginFormDisplayed() {
 		waitForElementVisible(driver, LoginPageUI.LOGIN_FORM);
 		return isControlDisplayed(driver, LoginPageUI.LOGIN_FORM);

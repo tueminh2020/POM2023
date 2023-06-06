@@ -9,7 +9,9 @@ public class registerPageObject extends AbstractPages {
 	private WebDriver driver;
 
 	public registerPageObject(WebDriver mappingDriver) {
-		this.driver = mappingDriver;
+		driver = mappingDriver;
+		System.out.println("regiter page"+ driver.toString());
+
 	}
 
 	public boolean isRegisterPageDisplayed() {

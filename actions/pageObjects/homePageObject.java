@@ -6,12 +6,13 @@ import bankguru.homePageUI;
 import commons.AbstractPages;
 
 public class homePageObject extends AbstractPages{
+	private WebDriver driver;
 
 	public homePageObject(WebDriver mappingDriver) {
-		this.driver = mappingDriver;
+		driver = mappingDriver;
+		System.out.println("Home page"+ driver.toString());
 	}
 
-	private WebDriver driver;
 	public boolean isWelcomeMsgDisplayed() {
 		waitForElementVisible(driver, homePageUI.WELCOME_MSG);
 		return isControlDisplayed(driver, homePageUI.WELCOME_MSG);
