@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -26,7 +27,8 @@ public class Account_Level03_PageObject {
 	
 	@BeforeTest
 	public void beforeTest() {
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://demo.guru99.com/v4/");

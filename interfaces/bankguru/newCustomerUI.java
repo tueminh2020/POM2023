@@ -9,18 +9,18 @@ public class newCustomerUI {
 	public static final String ERR_MSG_DATE_OF_BIRTH ="//label[(text()='Date Field must not be blank')]";
 	public static final String ADDRESS_AREABOX ="//textarea[@name='addr']";
 	public static final String ERR_MSG_ADDRESS_AREABOX ="//label[(text()='Address Field must not be blank')]";
-	public static final String CITY_TEXTBOX ="";
+	public static final String CITY_TEXTBOX ="//input[@name='city']";
 	public static final String ERR_MSG_CITY_TEXTBOX ="//label[(text()='City Field must not be blank')]";
-	public static final String STATE_TEXTBOX ="";
+	public static final String STATE_TEXTBOX ="//input[@name='state']";
 	public static final String ERR_MSG_STATE_TEXTBOX ="//label[(text()='State must not be blank')]";
-	public static final String PIN_TEXTBOX ="";
+	public static final String PIN_TEXTBOX ="//input[@name='pinno']";
 	public static final String ERR_MSG_PIN_TEXTBOX ="//label[(text()='PIN Code must not be blank')]";
-	public static final String MOBILE_TEXTBOX ="";
+	public static final String MOBILE_TEXTBOX ="//input[@name='telephoneno']";
 	public static final String ERR_MSG_MOBILE_TEXTBOX ="//label[(text()='Mobile no must not be blank')]";
-	public static final String EMAIL_TEXTBOX ="";
+	public static final String EMAIL_TEXTBOX ="//input[@name='emailid']";
 	public static final String ERR_MSG_EMAIL_TEXTBOX ="//label[(text()='Email-ID must not be blank')]";
-	public static final String PASSWORD_TEXTBOX ="";
+	public static final String PASSWORD_TEXTBOX ="//input[@name='password']";
 	public static final String ERR_MSG_PASSWORD_TEXTBOX ="//label[(text()='Password must not be blank')]";
-	public static final String SUBMIT_BUTTON ="";
+	public static final String SUBMIT_BUTTON ="//input[@name='sub']";
 		
 }
