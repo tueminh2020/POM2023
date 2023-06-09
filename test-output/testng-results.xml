@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-06-09T10:07:10Z" name="Default suite" finished-at="2023-06-09T10:07:32Z" duration-ms="21244">
+    <groups>
+    </groups>
+    <test started-at="2023-06-09T10:07:10Z" name="Default test" finished-at="2023-06-09T10:07:32Z" duration-ms="21244">
+      <class name="com.bankguru.account.Account_Level03_PageObject">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:10Z" name="beforeTest" finished-at="2023-06-09T10:07:16Z" duration-ms="5642" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method signature="TC_01_registerToSystem()[pri:1, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:16Z" name="TC_01_registerToSystem" finished-at="2023-06-09T10:07:21Z" duration-ms="4923" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_01_registerToSystem -->
+        <test-method signature="TC_02_loginToSystem()[pri:2, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:21Z" name="TC_02_loginToSystem" finished-at="2023-06-09T10:07:24Z" duration-ms="2964" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_02_loginToSystem -->
+        <test-method signature="TC_03_CusNameEmpty()[pri:3, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:24Z" name="TC_03_CusNameEmpty" finished-at="2023-06-09T10:07:26Z" duration-ms="1932" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_03_CusNameEmpty -->
+        <test-method signature="TC_04_CusNameCannotNummeric()[pri:4, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:26Z" name="TC_04_CusNameCannotNummeric" finished-at="2023-06-09T10:07:29Z" duration-ms="3313" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_04_CusNameCannotNummeric -->
+        <test-method signature="TC_05_CusNameCannotFirstSpaceChar()[pri:5, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:29Z" name="TC_05_CusNameCannotFirstSpaceChar" finished-at="2023-06-09T10:07:30Z" duration-ms="244" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_05_CusNameCannotFirstSpaceChar -->
+        <test-method signature="TC_06_CusNameSpecialChar()[pri:6, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:30Z" name="TC_06_CusNameSpecialChar" finished-at="2023-06-09T10:07:30Z" duration-ms="309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_06_CusNameSpecialChar -->
+        <test-method signature="TC_07_AddessNotEmpty()[pri:7, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:30Z" name="TC_07_AddessNotEmpty" finished-at="2023-06-09T10:07:30Z" duration-ms="152" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_07_AddessNotEmpty -->
+        <test-method signature="TC_07_AddessHaveFirstBlank()[pri:8, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:30Z" name="TC_07_AddessHaveFirstBlank" finished-at="2023-06-09T10:07:30Z" duration-ms="197" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_07_AddessHaveFirstBlank -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.bankguru.account.Account_Level03_PageObject@15bbf42f]" started-at="2023-06-09T10:07:30Z" name="afterTest" finished-at="2023-06-09T10:07:32Z" duration-ms="1527" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.bankguru.account.Account_Level03_PageObject -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

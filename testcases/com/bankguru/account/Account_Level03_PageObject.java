@@ -30,8 +30,8 @@ public class Account_Level03_PageObject {
 
 	@BeforeTest
 	public void beforeTest() {
-		//System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
+		driver = new ChromeDriver();
 		System.out.println(driver.toString());
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -39,12 +39,12 @@ public class Account_Level03_PageObject {
 		emailInput = "tranhuyentb" + randomNumber() + "@yopmail.com";
 		customerName = "Tran Thi Huyen";
 		dob = "22/10/2017";
-		address ="123 Tay Ho Ha Noi";
+		address = "123 Tay Ho Ha Noi";
 		city = "Ha Noi";
-		state ="Viet Nam";
-		pin="000000";
-		mobile ="098727839";
-		password ="12345678";
+		state = "Viet Nam";
+		pin = "000000";
+		mobile = "098727839";
+		password = "12345678";
 	}
 
 	@Test(priority = 1)
@@ -88,10 +88,9 @@ public class Account_Level03_PageObject {
 		newCustomerPage.sendkeyTabToCustomerName();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgCusNameDisplayed());
 		Thread.sleep(1000);
-
 	}
 
-	//@Test(priority = 4)
+	@Test(priority = 4)
 	public void TC_04_CusNameCannotNummeric() throws Exception {
 		newCustomerPage.inputToCustomerName(numericInput);
 		Assert.assertTrue(newCustomerPage.isNumericNameErrDisplayed());
@@ -99,27 +98,27 @@ public class Account_Level03_PageObject {
 		Thread.sleep(3000);
 	}
 
-	//@Test(priority = 5)
+	@Test(priority = 5)
 	public void TC_05_CusNameCannotFirstSpaceChar() {
 		newCustomerPage.sendSpaceToCustomerName();
 		Assert.assertTrue(newCustomerPage.isFirstSpaceNameErrDisplayed());
 		newCustomerPage.clearTextInCustomerName();
 	}
 
-	//@Test(priority = 6)
+	@Test(priority = 6)
 	public void TC_06_CusNameSpecialChar() {
 		newCustomerPage.inputToCustomerName(emailInput);
 		Assert.assertTrue(newCustomerPage.isSpecialNameErrDisplayed());
 		newCustomerPage.clearTextInCustomerName();
 	}
 
-	//@Test(priority = 7)
+	@Test(priority = 7)
 	public void TC_07_AddessNotEmpty() {
 		newCustomerPage.sendKeyTabAddress();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgAddressDisplayed());
 	}
 
-//	@Test(priority = 8)
+	@Test(priority = 8)
 	public void TC_07_AddessHaveFirstBlank() {
 		newCustomerPage.sendSpaceToAddress();
 		Assert.assertTrue(newCustomerPage.isErrFirstBlankMsgDisplayed());
@@ -132,34 +131,34 @@ public class Account_Level03_PageObject {
 		Assert.assertTrue(newCustomerPage.isEmptyMsgCityDisplayed());
 	}
 
-	//@Test(priority = 10)
+	// @Test(priority = 10)
 	public void cityCannotBeNumeric() {
 		newCustomerPage.inputToCity(numericInput);
 		Assert.assertTrue(newCustomerPage.isNumericMsgCityDisplayed());
 		newCustomerPage.clearTextInCity();
 	}
 
-	//@Test(priority = 11)
+	// @Test(priority = 11)
 	public void cityCannotFirstBlank() {
 		newCustomerPage.sendSpaceToCity();
 		Assert.assertTrue(newCustomerPage.isFirstSpaceMsgCityDisplayed());
 		newCustomerPage.clearTextInCity();
 	}
 
-	//@Test(priority = 12)
+	// @Test(priority = 12)
 	public void stateCannotBeEmpty() {
 		newCustomerPage.sendKeyTabState();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgStateDisplayed());
 	}
-	
-	//@Test(priority=13)
+
+	// @Test(priority=13)
 	public void stateCannotBeNumeric() {
 		newCustomerPage.inputToState(numericInput);
 		Assert.assertTrue(newCustomerPage.isNumericMsgStateDisplayed());
 		newCustomerPage.clearTextInState();
 	}
-	
-	//@Test(priority =14)
+
+	// @Test(priority =14)
 	public void stateWithFirstBlank() {
 		newCustomerPage.sendSpaceToState();
 		Assert.assertTrue(newCustomerPage.isSpaceMsgStateDisplayed());
@@ -167,14 +166,13 @@ public class Account_Level03_PageObject {
 
 	}
 
-
-	//@Test(priority = 15)
+	// @Test(priority = 15)
 	public void pinCannotBeEmpty() {
 		newCustomerPage.sendKeyTabPIN();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgPINDisplayed());
 	}
-	
-	//@Test(priority=16)
+
+	// @Test(priority=16)
 	public void pinMustBeNumeric() throws InterruptedException {
 		newCustomerPage.inputToPin(numericInput);
 		newCustomerPage.sendKeyTabPIN();
@@ -182,16 +180,16 @@ public class Account_Level03_PageObject {
 		Thread.sleep(1000);
 		newCustomerPage.clearTextInPin();
 	}
-	
-	//@Test(priority =17)
+
+	// @Test(priority =17)
 	public void pinLesserThan6() {
 		newCustomerPage.inputToPin(pinErr);
 		newCustomerPage.sendKeyTabPIN();
 		Assert.assertTrue(newCustomerPage.isPinLesserThan6MsgStateDisplayed());
 		newCustomerPage.clearTextInPin();
 	}
-	
-	@Test(priority =18)
+
+	//@Test(priority = 18)
 	public void CreateCustomerSuccess() {
 		newCustomerPage.reloadNewCustomerPage();
 		newCustomerPage.inputToCustomerName(customerName);
@@ -207,9 +205,9 @@ public class Account_Level03_PageObject {
 		newCustomerPage.clickToSubmitButton();
 		customerIDLabel = newCustomerPage.getCustomerID();
 		System.out.println("Customer ID : " + customerIDLabel);
-		//newCustomerPage.clickOKToAccepAlert();
+		// newCustomerPage.clickOKToAccepAlert();
 	}
-	
+
 	public int randomNumber() {
 		Random random = new Random();
 		return random.nextInt(999999);
