@@ -3,8 +3,10 @@ package pageObjects;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
+import bankguru.homePageUI;
 import bankguru.newCustomerUI;
 import commons.AbstractPages;
+import commons.PageFactoryManage;
 
 public class newCustomerPageObject extends AbstractPages {
 	private WebDriver driver;
@@ -252,4 +254,7 @@ public class newCustomerPageObject extends AbstractPages {
 		return getTextOfElement(driver, newCustomerUI.CUSTOMER_ID);
 	}
 
+	public homePageObject clickToManagerLink() {
+		return PageFactoryManage.getHomePage(driver);
+	}
 }

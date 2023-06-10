@@ -39,4 +39,8 @@ public class homePageObject extends AbstractPages{
 		return PageFactoryManage.getNewCustomerPage(driver);
 	}
 
+	public editCustomerPageObject clickToEditCustomer() {
+		return PageFactoryManage.getEditCustomerPage(driver);
+	}
+
 }
