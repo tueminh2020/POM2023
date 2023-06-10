@@ -125,40 +125,40 @@ public class Account_Level03_PageObject {
 		newCustomerPage.clearTextInAddress();
 	}
 
-//	@Test(priority = 9)
+	@Test(priority = 9)
 	public void cityCannotBeEmpty() {
 		newCustomerPage.sendKeyTabToCity();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgCityDisplayed());
 	}
 
-	// @Test(priority = 10)
+	 @Test(priority = 10)
 	public void cityCannotBeNumeric() {
 		newCustomerPage.inputToCity(numericInput);
 		Assert.assertTrue(newCustomerPage.isNumericMsgCityDisplayed());
 		newCustomerPage.clearTextInCity();
 	}
 
-	// @Test(priority = 11)
+	 @Test(priority = 11)
 	public void cityCannotFirstBlank() {
 		newCustomerPage.sendSpaceToCity();
 		Assert.assertTrue(newCustomerPage.isFirstSpaceMsgCityDisplayed());
 		newCustomerPage.clearTextInCity();
 	}
 
-	// @Test(priority = 12)
+	 @Test(priority = 12)
 	public void stateCannotBeEmpty() {
 		newCustomerPage.sendKeyTabState();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgStateDisplayed());
 	}
 
-	// @Test(priority=13)
+	 @Test(priority=13)
 	public void stateCannotBeNumeric() {
 		newCustomerPage.inputToState(numericInput);
 		Assert.assertTrue(newCustomerPage.isNumericMsgStateDisplayed());
 		newCustomerPage.clearTextInState();
 	}
 
-	// @Test(priority =14)
+	 @Test(priority =14)
 	public void stateWithFirstBlank() {
 		newCustomerPage.sendSpaceToState();
 		Assert.assertTrue(newCustomerPage.isSpaceMsgStateDisplayed());
@@ -166,13 +166,13 @@ public class Account_Level03_PageObject {
 
 	}
 
-	// @Test(priority = 15)
+	 @Test(priority = 15)
 	public void pinCannotBeEmpty() {
 		newCustomerPage.sendKeyTabPIN();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgPINDisplayed());
 	}
 
-	// @Test(priority=16)
+	 @Test(priority=16)
 	public void pinMustBeNumeric() throws InterruptedException {
 		newCustomerPage.inputToPin(numericInput);
 		newCustomerPage.sendKeyTabPIN();
@@ -181,7 +181,7 @@ public class Account_Level03_PageObject {
 		newCustomerPage.clearTextInPin();
 	}
 
-	// @Test(priority =17)
+	 @Test(priority =17)
 	public void pinLesserThan6() {
 		newCustomerPage.inputToPin(pinErr);
 		newCustomerPage.sendKeyTabPIN();
@@ -189,7 +189,7 @@ public class Account_Level03_PageObject {
 		newCustomerPage.clearTextInPin();
 	}
 
-	//@Test(priority = 18)
+	@Test(priority = 18)
 	public void CreateCustomerSuccess() {
 		newCustomerPage.reloadNewCustomerPage();
 		newCustomerPage.inputToCustomerName(customerName);
