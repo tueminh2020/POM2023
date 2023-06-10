@@ -83,6 +83,7 @@ public class newCustomer {
 
 	@Test(priority = 3)
 	public void TC_03_CusNameEmpty() throws InterruptedException {
+		homePage.clickToNewCustomerLink();
 		newCustomerPage = new newCustomerPageObject(driver);
 		//newCustomerPage.clickToNewCustomerLink();
 		newCustomerPage.sendkeyTabToCustomerName();

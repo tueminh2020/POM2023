@@ -14,11 +14,6 @@ public class newCustomerPageObject extends AbstractPages {
 		System.out.println("Login page"+ driver.toString());
 	}
 
-//	public void clickToNewCustomerLink() {
-//		waitForElementVisible(driver, newCustomerUI.NEW_CUSTOMER_BUTTON);
-//		clickToElement(driver, newCustomerUI.NEW_CUSTOMER_BUTTON);
-//	}
-
 	public void sendkeyTabToCustomerName() {
 		sendKeyboardToElement(driver, newCustomerUI.CUSTOMER_NAME_TEXTBOX, Keys.TAB);
 
