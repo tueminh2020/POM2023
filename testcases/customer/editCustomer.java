@@ -84,7 +84,7 @@ public class editCustomer {
 	@Test(priority = 3)
 	public void TC_03_CusNameEmpty() throws InterruptedException {
 		newCustomerPage = new newCustomerPageObject(driver);
-		newCustomerPage.clickToNewCustomerLink();
+		//newCustomerPage.clickToNewCustomerLink();
 		newCustomerPage.sendkeyTabToCustomerName();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgCusNameDisplayed());
 		Thread.sleep(1000);

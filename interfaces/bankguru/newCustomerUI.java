@@ -1,7 +1,6 @@
 package bankguru;
 
 public class newCustomerUI {
-	public static final String NEW_CUSTOMER_BUTTON = "//a[text()='New Customer']";
 	public static final String ADD_NEW_CUSTOMER_TEXT = "//p[contains(text(),'Add New Customer')]";
 	public static final String CUSTOMER_NAME_TEXTBOX = "//input[@name='name']";
 	public static final String ERR_MSG_CUSTOMER_NAME = "//input[@name='name']//following-sibling::label[(text()='Customer name must not be blank')]";

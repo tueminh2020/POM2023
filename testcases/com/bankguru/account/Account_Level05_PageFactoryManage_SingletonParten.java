@@ -81,10 +81,139 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 		Assert.assertTrue(homePage.isWelcomeMsgDisplayed());
 		Assert.assertTrue(homePage.isUserIDDisplayed(userInfor));
 		
-		loginPage = homePage.clickToLogoutLink();
-		Assert.assertTrue(loginPage.isLoginFormDisplayed());
+//		loginPage = homePage.clickToLogoutLink();
+//		Assert.assertTrue(loginPage.isLoginFormDisplayed());
 
 	}
+	
+	@Test(priority =3)
+	public void TC_03_clickToNewCustomer() {
+		//newCustomerPage = new newCustomerPageObject(driver);
+		newCustomerPage = homePage.clickToNewCustomerLink();
+		newCustomerPage.sendkeyTabToCustomerName();
+		Assert.assertTrue(newCustomerPage.isEmptyMsgCusNameDisplayed());
+	}
+	
+
+	@Test(priority = 4)
+	public void TC_04_CusNameCannotNummeric() throws Exception {
+		newCustomerPage.inputToCustomerName(numericInput);
+		Assert.assertTrue(newCustomerPage.isNumericNameErrDisplayed());
+		newCustomerPage.clearTextInCustomerName();
+		Thread.sleep(3000);
+	}
+	
+
+	@Test(priority = 5)
+	public void TC_05_CusNameCannotFirstSpaceChar() {
+		newCustomerPage.sendSpaceToCustomerName();
+		Assert.assertTrue(newCustomerPage.isFirstSpaceNameErrDisplayed());
+		newCustomerPage.clearTextInCustomerName();
+	}
+
+	@Test(priority = 6)
+	public void TC_06_CusNameSpecialChar() {
+		newCustomerPage.inputToCustomerName(emailInput);
+		Assert.assertTrue(newCustomerPage.isSpecialNameErrDisplayed());
+		newCustomerPage.clearTextInCustomerName();
+	}
+
+	@Test(priority = 7)
+	public void TC_07_AddessNotEmpty() {
+		newCustomerPage.sendKeyTabAddress();
+		Assert.assertTrue(newCustomerPage.isEmptyMsgAddressDisplayed());
+	}
+
+	@Test(priority = 8)
+	public void TC_07_AddessHaveFirstBlank() {
+		newCustomerPage.sendSpaceToAddress();
+		Assert.assertTrue(newCustomerPage.isErrFirstBlankMsgDisplayed());
+		newCustomerPage.clearTextInAddress();
+	}
+
+	@Test(priority = 9)
+	public void cityCannotBeEmpty() {
+		newCustomerPage.sendKeyTabToCity();
+		Assert.assertTrue(newCustomerPage.isEmptyMsgCityDisplayed());
+	}
+
+	 @Test(priority = 10)
+	public void cityCannotBeNumeric() {
+		newCustomerPage.inputToCity(numericInput);
+		Assert.assertTrue(newCustomerPage.isNumericMsgCityDisplayed());
+		newCustomerPage.clearTextInCity();
+	}
+
+	 @Test(priority = 11)
+	public void cityCannotFirstBlank() {
+		newCustomerPage.sendSpaceToCity();
+		Assert.assertTrue(newCustomerPage.isFirstSpaceMsgCityDisplayed());
+		newCustomerPage.clearTextInCity();
+	}
+
+	 @Test(priority = 12)
+	public void stateCannotBeEmpty() {
+		newCustomerPage.sendKeyTabState();
+		Assert.assertTrue(newCustomerPage.isEmptyMsgStateDisplayed());
+	}
+
+	 @Test(priority=13)
+	public void stateCannotBeNumeric() {
+		newCustomerPage.inputToState(numericInput);
+		Assert.assertTrue(newCustomerPage.isNumericMsgStateDisplayed());
+		newCustomerPage.clearTextInState();
+	}
+
+	 @Test(priority =14)
+	public void stateWithFirstBlank() {
+		newCustomerPage.sendSpaceToState();
+		Assert.assertTrue(newCustomerPage.isSpaceMsgStateDisplayed());
+		newCustomerPage.clearTextInState();
+
+	}
+
+	 @Test(priority = 15)
+	public void pinCannotBeEmpty() {
+		newCustomerPage.sendKeyTabPIN();
+		Assert.assertTrue(newCustomerPage.isEmptyMsgPINDisplayed());
+	}
+
+	 @Test(priority=16)
+	public void pinMustBeNumeric() throws InterruptedException {
+		newCustomerPage.inputToPin(numericInput);
+		newCustomerPage.sendKeyTabPIN();
+		Assert.assertTrue(newCustomerPage.isCharMsgPinDisplayed());
+		Thread.sleep(1000);
+		newCustomerPage.clearTextInPin();
+	}
+
+	 @Test(priority =17)
+	public void pinLesserThan6() {
+		newCustomerPage.inputToPin(pinErr);
+		newCustomerPage.sendKeyTabPIN();
+		Assert.assertTrue(newCustomerPage.isPinLesserThan6MsgStateDisplayed());
+		newCustomerPage.clearTextInPin();
+	}
+
+	@Test(priority = 18)
+	public void CreateCustomerSuccess() {
+		newCustomerPage.reloadNewCustomerPage();
+		newCustomerPage.inputToCustomerName(customerName);
+		newCustomerPage.checkToGender();
+		newCustomerPage.inputToDateOfBirth(dob);
+		newCustomerPage.inputToAddress(address);
+		newCustomerPage.inputToCity(city);
+		newCustomerPage.inputToState(state);
+		newCustomerPage.inputToPin(pin);
+		newCustomerPage.inputToMobile(mobile);
+		newCustomerPage.inputToEmail(emailInput);
+		newCustomerPage.inputToPassword(password);
+		newCustomerPage.clickToSubmitButton();
+		customerIDLabel = newCustomerPage.getCustomerID();
+		System.out.println("Customer ID : " + customerIDLabel);
+		// newCustomerPage.clickOKToAccepAlert();
+	}
+
 	public int randomNumber() {
 		Random random = new Random();
 		return random.nextInt(999999);

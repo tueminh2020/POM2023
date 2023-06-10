@@ -33,4 +33,10 @@ public class homePageObject extends AbstractPages{
 		return PageFactoryManage.getLoginPage(driver);
 	}
 
+	public newCustomerPageObject clickToNewCustomerLink() {
+		waitForElementVisible(driver, homePageUI.NEW_CUSTOMER_BUTTON);
+		clickToElement(driver, homePageUI.NEW_CUSTOMER_BUTTON);
+		return PageFactoryManage.getNewCustomerPage(driver);
+	}
+
 }
