@@ -1,4 +1,4 @@
-package com.bankguru.account;
+
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -31,10 +31,24 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 	newCustomerPageObject newCustomerPage;
 	String pinErr = "123";
 
+	@Parameters("browser")
 	@BeforeTest
-	public void beforeTest() {
-		System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
-		driver = new ChromeDriver();
+	public void beforeTest(String browserName) {
+		if(browserName.equalsIgnoreCase("firefox")) {
+			driver = new FirefoxDriver();
+		}
+		else if(browserName.equalsIgnoreCase("chrome")){
+			System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
+			driver = new ChromeDriver();
+
+		}
+		else if(browserName.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("headless");
+			options.addArguments("window-size=1366x768");
+			driver = new ChromeDriver(options);
+		}
 		System.out.println(driver.toString());
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
@@ -58,7 +72,7 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 		loginPageUrl = loginPage.getLoginPageUrl();
 		registerPage = loginPage.clickToHereLink();
 
-		// registerPage = new registerPageObject(driver);
+		//registerPage = new registerPageObject(driver);
 		Assert.assertTrue(registerPage.isRegisterPageDisplayed());
 		registerPage.inputToEmailIDTextbox(emailInput);
 		registerPage.clickToLoginButton();
@@ -71,30 +85,31 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 
 	@Test(priority = 2)
 	public void TC_02_loginToSystem() {
-		loginPage = registerPage.openLoginPage(loginPageUrl);
+		loginPage= registerPage.openLoginPage(loginPageUrl);
 		Assert.assertTrue(loginPage.isLoginFormDisplayed());
-		// loginPage = new loginPageObject(driver);
+		//loginPage = new loginPageObject(driver);
 
 		loginPage.inputToUserIDTextbox(userInfor);
 		loginPage.inputToPasswordTextbox(passInfor);
-		homePage = loginPage.clickToLoginButton();
+		homePage= loginPage.clickToLoginButton();
 
-		// homePage = new homePageObject(driver);
+		//homePage = new homePageObject(driver);
 		Assert.assertTrue(homePage.isWelcomeMsgDisplayed());
 		Assert.assertTrue(homePage.isUserIDDisplayed(userInfor));
-
+		
 //		loginPage = homePage.clickToLogoutLink();
 //		Assert.assertTrue(loginPage.isLoginFormDisplayed());
 
 	}
-
-	@Test(priority = 3)
+	
+	@Test(priority =3)
 	public void TC_03_clickToNewCustomer() {
-		// newCustomerPage = new newCustomerPageObject(driver);
+		//newCustomerPage = new newCustomerPageObject(driver);
 		newCustomerPage = homePage.clickToNewCustomerLink();
 		newCustomerPage.sendkeyTabToCustomerName();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgCusNameDisplayed());
 	}
+	
 
 	@Test(priority = 4)
 	public void TC_04_CusNameCannotNummeric() throws Exception {
@@ -103,6 +118,7 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 		newCustomerPage.clearTextInCustomerName();
 		Thread.sleep(3000);
 	}
+	
 
 	@Test(priority = 5)
 	public void TC_05_CusNameCannotFirstSpaceChar() {
@@ -137,34 +153,34 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 		Assert.assertTrue(newCustomerPage.isEmptyMsgCityDisplayed());
 	}
 
-	@Test(priority = 10)
+	 @Test(priority = 10)
 	public void cityCannotBeNumeric() {
 		newCustomerPage.inputToCity(numericInput);
 		Assert.assertTrue(newCustomerPage.isNumericMsgCityDisplayed());
 		newCustomerPage.clearTextInCity();
 	}
 
-	@Test(priority = 11)
+	 @Test(priority = 11)
 	public void cityCannotFirstBlank() {
 		newCustomerPage.sendSpaceToCity();
 		Assert.assertTrue(newCustomerPage.isFirstSpaceMsgCityDisplayed());
 		newCustomerPage.clearTextInCity();
 	}
 
-	@Test(priority = 12)
+	 @Test(priority = 12)
 	public void stateCannotBeEmpty() {
 		newCustomerPage.sendKeyTabState();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgStateDisplayed());
 	}
 
-	@Test(priority = 13)
+	 @Test(priority=13)
 	public void stateCannotBeNumeric() {
 		newCustomerPage.inputToState(numericInput);
 		Assert.assertTrue(newCustomerPage.isNumericMsgStateDisplayed());
 		newCustomerPage.clearTextInState();
 	}
 
-	@Test(priority = 14)
+	 @Test(priority =14)
 	public void stateWithFirstBlank() {
 		newCustomerPage.sendSpaceToState();
 		Assert.assertTrue(newCustomerPage.isSpaceMsgStateDisplayed());
@@ -172,13 +188,13 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 
 	}
 
-	@Test(priority = 15)
+	 @Test(priority = 15)
 	public void pinCannotBeEmpty() {
 		newCustomerPage.sendKeyTabPIN();
 		Assert.assertTrue(newCustomerPage.isEmptyMsgPINDisplayed());
 	}
 
-	@Test(priority = 16)
+	 @Test(priority=16)
 	public void pinMustBeNumeric() throws InterruptedException {
 		newCustomerPage.inputToPin(numericInput);
 		newCustomerPage.sendKeyTabPIN();
@@ -187,7 +203,7 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 		newCustomerPage.clearTextInPin();
 	}
 
-	@Test(priority = 17)
+	 @Test(priority =17)
 	public void pinLesserThan6() {
 		newCustomerPage.inputToPin(pinErr);
 		newCustomerPage.sendKeyTabPIN();

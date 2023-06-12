@@ -13,13 +13,14 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import commons.AbstractTest;
 import commons.PageFactoryManage;
 import pageObjects.homePageObject;
 import pageObjects.loginPageObject;
 import pageObjects.newCustomerPageObject;
 import pageObjects.registerPageObject;
 
-public class Account_Level05_PageFactoryManage_SingletonParten {
+public class Account_Level06_MultiBrowser_ParallelTesting extends AbstractTest{
 	WebDriver driver;
 	String emailInput, customerName, dob, address, city, state, pin, mobile, password;
 	String customerIDLabel, CustomerNameLabel, GenderLabel, AddressLabel, StateLabel, PinLabel, MobileLabel, EmailLabel;
@@ -31,16 +32,11 @@ public class Account_Level05_PageFactoryManage_SingletonParten {
 	newCustomerPageObject newCustomerPage;
 	String pinErr = "123";
 
+	@Parameters("browser")
 	@BeforeTest
-	public void beforeTest() {
-		System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
-		driver = new ChromeDriver();
-		System.out.println(driver.toString());
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		driver.get("https://demo.guru99.com/v4/");
+	public void beforeTest(String browserName) {
+		driver = openMultiBrowser(browserName);
 		loginPage = PageFactoryManage.getLoginPage(driver);
-
 		emailInput = "tranhuyentb" + randomNumber() + "@yopmail.com";
 		customerName = "Tran Thi Huyen";
 		dob = "22/10/2017";
