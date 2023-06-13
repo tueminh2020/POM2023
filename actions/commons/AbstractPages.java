@@ -13,6 +13,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.DepositPageObject;
+import pageObjects.FundTransferPageObject;
+import pageObjects.NewAccountPageObject;
+import pageObjects.editCustomerPageObject;
+import pageObjects.homePageObject;
+import pageObjects.newCustomerPageObject;
+
 public class AbstractPages {
 	WebElement element;
 	List<WebElement> elements;
@@ -77,10 +84,10 @@ public class AbstractPages {
 		highlightElement(driver, locatorXpath);
 		element.sendKeys(valueToInput);
 	}
-		
+
 	public void selectItemInDropdown(WebDriver driver, String locatorXpath, String value) {
 		element = driver.findElement(By.xpath(locatorXpath));
-		Select select = new Select(element);	
+		Select select = new Select(element);
 		select.selectByVisibleText(value);
 	}
 
@@ -216,11 +223,11 @@ public class AbstractPages {
 		action.sendKeys(element, key).perform();
 	}
 
-	public void clearTextInElement(WebDriver driver, String locatorXpath)
-	{
+	public void clearTextInElement(WebDriver driver, String locatorXpath) {
 		element = driver.findElement(By.xpath(locatorXpath));
 		element.clear();
 	}
+
 	public void highlightElement(WebDriver driver, String locatorXpath) {
 		jsExecuter = (JavascriptExecutor) driver;
 		element = driver.findElement(By.xpath(locatorXpath));
@@ -287,6 +294,45 @@ public class AbstractPages {
 	public void waitForAlertPresent(WebDriver driver) {
 		waitExplicit = new WebDriverWait(driver, longTimeout);
 		waitExplicit.until(ExpectedConditions.alertIsPresent());
+	}
+
+	// Ham mo ra 14 page
+	public homePageObject openHomePage(WebDriver driver) {
+		waitForElementVisible(driver, AbstractPageUI.HOMEPAGE_LINK);
+		clickToElement(driver, AbstractPageUI.HOMEPAGE_LINK);
+		return PageFactoryManage.getHomePage(driver);
+	}
+
+	public NewAccountPageObject openNewAccountPage(WebDriver driver) {
+		waitForElementVisible(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
+		clickToElement(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
+		return PageFactoryManage.getNewAccountPage(driver);
+	}
+
+	public DepositPageObject openDepositPage(WebDriver driver) {
+		waitForElementVisible(driver, AbstractPageUI.DEPOSIT_LINK);
+		clickToElement(driver, AbstractPageUI.DEPOSIT_LINK);
+		return PageFactoryManage.getDepositPage(driver);
+	}
+
+	public FundTransferPageObject openFundTransferPage(WebDriver driver) {
+		waitForElementVisible(driver, AbstractPageUI.FUND_TRANSFER_LINK);
+		clickToElement(driver, AbstractPageUI.FUND_TRANSFER_LINK);
+		return PageFactoryManage.getFundTransferPage(driver);
+	}
+	
+	public newCustomerPageObject openNewCustomerPage(WebDriver driver) {
+		waitForElementVisible(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
+		clickToElement(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
+		return PageFactoryManage.getNewCustomerPage(driver);
+
+	}
+	
+	public editCustomerPageObject openEditCustomerPage(WebDriver driver) {
+		waitForElementVisible(driver, AbstractPageUI.EDIT_CUSTOMER_LINK);
+		clickToElement(driver, AbstractPageUI.EDIT_CUSTOMER_LINK);
+		return PageFactoryManage.getEditCustomerPage(driver);
+
 	}
 
 }

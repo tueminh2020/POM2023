@@ -20,7 +20,7 @@ import pageObjects.loginPageObject;
 import pageObjects.newCustomerPageObject;
 import pageObjects.registerPageObject;
 
-public class Account_Level07_WebDriverLifeCycle_ActionChain extends AbstractTest{
+public class Account_Level08_DynamicLocator_RestParameter extends AbstractTest{
 	WebDriver driver;
 	String emailInput, customerName, dob, address, city, state, pin, mobile, password;
 	String customerIDLabel, CustomerNameLabel, GenderLabel, AddressLabel, StateLabel, PinLabel, MobileLabel, EmailLabel;

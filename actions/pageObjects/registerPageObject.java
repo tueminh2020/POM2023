@@ -42,7 +42,6 @@ public class registerPageObject extends AbstractPages {
 
 	public loginPageObject openLoginPage(String loginPageUrl) {
 		openAnyUrl(driver, loginPageUrl);
-		//return new loginPageObject(driver);
 		return PageFactoryManage.getLoginPage(driver);
 	}
 

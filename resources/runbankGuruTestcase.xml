@@ -2,20 +2,20 @@
 <suite parallel="false" name="BANK GURU">
 
 
-	<test name="Run on firefox">
-		<parameter name="browser" value="firefox" />
-		<classes>
-			<class
-				name="com.bankguru.account.Account_Level06_MultiBrowser_ParallelTesting" />
-		</classes>
-	</test>
+<!-- 	<test name="Run on firefox"> -->
+<!-- 		<parameter name="browser" value="firefox" /> -->
+<!-- 		<classes> -->
+<!-- 			<class -->
+<!-- 				name="com.bankguru.account.Account_Level06_MultiBrowser_ParallelTesting" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
 
 	<test name="Run on chrome">
 		<parameter name="browser" value="chrome" />
 
 		<classes>
 			<class
-				name="com.bankguru.account.Account_Level06_MultiBrowser_ParallelTesting" />
+				name="com.bankguru.account.Account_Level07_WebDriverLifeCycle_ActionChain" />
 		</classes>
 	</test>
 

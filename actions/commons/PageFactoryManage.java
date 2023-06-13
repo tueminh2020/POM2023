@@ -2,6 +2,9 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObjects.DepositPageObject;
+import pageObjects.FundTransferPageObject;
+import pageObjects.NewAccountPageObject;
 import pageObjects.editCustomerPageObject;
 import pageObjects.homePageObject;
 import pageObjects.loginPageObject;
@@ -10,53 +13,37 @@ import pageObjects.registerPageObject;
 
 
 public class PageFactoryManage {
-	private static loginPageObject loginPage;
-	private static homePageObject homePage;
-	private static registerPageObject registerPage;
-	private static newCustomerPageObject newCustomerPage;
-	private static editCustomerPageObject editCustomerPage;
 	
 	public static loginPageObject getLoginPage(WebDriver driver) {
-//		if(loginPage==null)
-//		{
-//			loginPage = new loginPageObject(driver);
-//		}
-//		return loginPage;
 		return new loginPageObject(driver);
 	}
 	
 	public static registerPageObject getRegisterPage(WebDriver driver) {
-//		if(registerPage==null)
-//		{
-//			registerPage = new registerPageObject(driver);
-//		}
-//		return registerPage;
 		return new registerPageObject(driver);
 	}
 
 	public static homePageObject getHomePage(WebDriver driver) {
-//		if(homePage==null)
-//		{
-//			homePage = new homePageObject(driver);
-//		}
-//		return homePage;
 		return new homePageObject(driver);
 	}
 
 	public static newCustomerPageObject getNewCustomerPage(WebDriver driver) {
-//		if(newCustomerPage ==null) {
-//			newCustomerPage = new newCustomerPageObject(driver);
-//		}
-//		return newCustomerPage;
 		return new newCustomerPageObject(driver);
 	}
 
 	public static editCustomerPageObject getEditCustomerPage(WebDriver driver) {
-//		if(editCustomerPage ==null) {
-//			editCustomerPage = new editCustomerPageObject(driver);
-//		}
-//		return editCustomerPage;
 		return new editCustomerPageObject(driver);
+	}
+
+	public static NewAccountPageObject getNewAccountPage(WebDriver driver) {
+		return new NewAccountPageObject(driver);
+	}
+
+	public static FundTransferPageObject getFundTransferPage(WebDriver driver) {
+		return new FundTransferPageObject(driver);
+	}
+
+	public static DepositPageObject getDepositPage(WebDriver driver) {
+		return new DepositPageObject(driver);
 	}
 
 
