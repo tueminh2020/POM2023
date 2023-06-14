@@ -2,10 +2,15 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-public class editCustomerPageObject {
+import commons.AbstractPages;
 
-	public editCustomerPageObject(WebDriver driver) {
-		// TODO Auto-generated constructor stub
+public class editCustomerPageObject extends AbstractPages{
+	private WebDriver driver;
+
+	public editCustomerPageObject(WebDriver mappingDriver) {
+		driver = mappingDriver;
+		System.out.println("Edit customer page"+ driver.toString());
+
 	}
 
 }

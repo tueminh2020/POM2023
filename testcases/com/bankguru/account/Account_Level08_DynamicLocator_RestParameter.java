@@ -90,18 +90,21 @@ public class Account_Level08_DynamicLocator_RestParameter extends AbstractTest{
 
 	@Test
 	public void TC_03_OpenMultiPage() {
-		newCustomerPage = homePage.openNewCustomerPage(driver);
-		editCustomerPage = newCustomerPage.openEditCustomerPage(driver);
-		
-		newAccountPage= homePage.openNewAccountPage(driver);
-		
-		depositPage = newAccountPage.openDepositPage(driver);
-		
-		fundTransfer = depositPage.openFundTransferPage(driver);
-		
-		homePage = fundTransfer.openHomePage(driver);
-		
+		newAccountPage = (NewAccountPageObject) homePage.openMultiplePage(driver, "New Account");
+		depositPage = (DepositPageObject) newAccountPage.openMultiplePage(driver, "Deposit");
+		editCustomerPage = (editCustomerPageObject) depositPage.openMultiplePage(driver, "Edit Customer");
+		homePage = (homePageObject) editCustomerPage.openMultiplePage(driver, "Manager");
 	}
+	
+	@Test
+	public void TC_04_OpenMultiPages() {
+		//Sử dụng trong trường hợp nếu có quá nhiều page và không định nghĩa hết được trong abstractPage
+		homePage.openMultiplePages(driver, "New Customer");
+		newCustomerPage = PageFactoryManage.getNewCustomerPage(driver);
+		newAccountPage.openMultiplePages(driver, "Deposit");
+		depositPage = PageFactoryManage.getDepositPage(driver);
+	}
+
 	public int randomNumber() {
 		Random random = new Random();
 		return random.nextInt(999999);

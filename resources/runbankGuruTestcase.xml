@@ -15,7 +15,7 @@
 
 		<classes>
 			<class
-				name="com.bankguru.account.Account_Level07_WebDriverLifeCycle_ActionChain" />
+				name="com.bankguru.account.Account_Level08_DynamicLocator_RestParameter" />
 		</classes>
 	</test>
 

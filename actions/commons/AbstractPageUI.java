@@ -16,4 +16,7 @@ public class AbstractPageUI {
 	public static final String MINI_STATEMENT_LINK ="//a[contains(text(),'Mini Statement')]";
 	public static final String CUSTOMISED_LINK ="//a[contains(text(),'Customised Statement')]";
 	public static final String LOG_OUT_LINK ="//a[contains(text(),'Log out')]";
+	
+	//DYNAMIC link cho 14 link tren
+	public static final String DYNAMIC_LINK_PAGE ="//a[(text()='%s')]";
 }
