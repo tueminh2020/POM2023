@@ -15,7 +15,7 @@
 
 		<classes>
 			<class
-				name="com.bankguru.account.Account_Level08_DynamicLocator_RestParameter" />
+				name="com.bankguru.account.Account_Level09_CheckUndisplayed_OverwriteTimeout" />
 		</classes>
 	</test>
 

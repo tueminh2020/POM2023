@@ -2,16 +2,17 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
+import bankguru.LoginPageUI;
 import bankguru.homePageUI;
 import commons.AbstractPages;
 import commons.PageFactoryManage;
 
-public class homePageObject extends AbstractPages{
+public class homePageObject extends AbstractPages {
 	private WebDriver driver;
 
 	public homePageObject(WebDriver mappingDriver) {
 		driver = mappingDriver;
-		System.out.println("Home page"+ driver.toString());
+		System.out.println("Home page" + driver.toString());
 	}
 
 	public boolean isWelcomeMsgDisplayed() {
@@ -24,7 +25,7 @@ public class homePageObject extends AbstractPages{
 		waitForElementVisible(driver, USER_ID_FORMAT);
 		return isControlDisplayed(driver, USER_ID_FORMAT);
 	}
-	
+
 	public loginPageObject clickToLogoutLink() {
 		waitForElementVisible(driver, homePageUI.LOG_OUT_LINK);
 		clickToElement(driver, homePageUI.LOG_OUT_LINK);
@@ -41,6 +42,14 @@ public class homePageObject extends AbstractPages{
 
 	public editCustomerPageObject clickToEditCustomer() {
 		return PageFactoryManage.getEditCustomerPage(driver);
+	}
+
+	public boolean isLoginFormUndisplayed() {
+		return isControlUndisplayed(driver, LoginPageUI.LOGIN_FORM);
+	}
+
+	public boolean isIframeUndisplayed() {
+		return isControlUndisplayed(driver, LoginPageUI.FRAME_ADS);
 	}
 
 }
