@@ -1,7 +1,9 @@
 package commons;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,7 +24,7 @@ import pageObjects.newCustomerPageObject;
 
 public class AbstractPages {
 	WebElement element;
-	List<WebElement> elements;
+	List <WebElement> elements;
 	JavascriptExecutor jsExecuter;
 	WebDriverWait waitExplicit;
 	Actions action;
@@ -304,6 +306,7 @@ public class AbstractPages {
 		byLocator = By.xpath(locatorXpath);
 		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
 	}
+	
 
 	public void waitForElementClickAble(WebDriver driver, String locatorXpath) {
 		waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
@@ -313,13 +316,44 @@ public class AbstractPages {
 
 	public void waitForElementInvisible(WebDriver driver, String locatorXpath) {
 		waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
+		overwriteTimeout(driver, Constants.SHORT_TIMEOUT);
 		byLocator = By.xpath(locatorXpath);
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
+		overwriteTimeout(driver, Constants.LONG_TIMEOUT);
 	}
 
 	public void waitForAlertPresent(WebDriver driver) {
 		waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
 		waitExplicit.until(ExpectedConditions.alertIsPresent());
+	}
+	
+	public boolean isControlUndisplayed(WebDriver driver, String locator) {
+		Date date = new Date();
+		System.out.println("Start time : " + date.toString());
+		overwriteTimeout(driver, Constants.SHORT_TIMEOUT);
+		elements = driver.findElements(By.xpath(locator));
+		if(elements.size()==0) {
+			System.out.println("Element not in DOM");
+			System.out.println("End time : " + new Date().toString());
+			overwriteTimeout(driver,Constants.LONG_TIMEOUT);
+			return true;
+		}
+		else if(elements.size()> 0 && !elements.get(0).isDisplayed()) {
+			System.out.println("Element in DOM but not visible" );
+			System.out.println("End time : " + new Date().toString());
+			overwriteTimeout(driver,Constants.LONG_TIMEOUT);
+			return true;
+		}
+		else {
+			System.out.println("Element in DOM");
+			System.out.println("End time : " + new Date().toString());
+			overwriteTimeout(driver,Constants.LONG_TIMEOUT);
+			return false;
+		}
+	}
+	
+	public void overwriteTimeout(WebDriver driver, long timeout) {
+		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
 	}
 
 	// Ham mo ra 14 page
