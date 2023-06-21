@@ -55,14 +55,24 @@ public class Account_Level_10_Assert_Verify_Log_Report extends AbstractTest{
 
 	@Test
 	public void TC_01_registerToSystem() {
+		log.info("Register - Step 01: Verify login Form displayed");
 		Assert.assertTrue(loginPage.isLoginFormDisplayed());
 		loginPageUrl = loginPage.getLoginPageUrl();
+		
+		log.info("Register - Step 02: Click to here link");
 		registerPage = loginPage.clickToHereLink();
 
 		// registerPage = new registerPageObject(driver);
+		log.info("Register - Step 03: Vefiry register form displayed");
 		Assert.assertTrue(registerPage.isRegisterPageDisplayed());
+		
+		log.info("Register - Step 04: Input to emailID textbox");
 		registerPage.inputToEmailIDTextbox(emailInput);
+		
+		log.info("Register - Step 05: Click to submit button");
 		registerPage.clickToLoginButton();
+		
+		log.info("Register - Step 06: Get ra userID and Password");
 		userInfor = registerPage.getUserIDInfor();
 		passInfor = registerPage.getPasswordInfor();
 		System.out.println(userInfor + "/" + passInfor);
@@ -71,23 +81,38 @@ public class Account_Level_10_Assert_Verify_Log_Report extends AbstractTest{
 	}
 	@Test
 	public void TC_02_loginToSystem() {
+		log.info("Login - Step 01: Open login form");
 		loginPage = registerPage.openLoginPage(loginPageUrl);
-		Assert.assertTrue(loginPage.isLoginFormDisplayed());
+		
+		log.info("Login - Step 02: Verify loginform displayed");
+		verifyTrue(loginPage.isLoginFormDisplayed());
+		
+		log.info("Login - Step 03: Input to userID");
 		loginPage.inputToUserIDTextbox(userInfor);
+		
+		log.info("Login - Step 04: Input to password");
 		loginPage.inputToPasswordTextbox(passInfor);
+		
+		log.info("Login - Step 05: Click to Login Button");
 		homePage = loginPage.clickToLoginButton();
 
-		Assert.assertTrue(homePage.isWelcomeMsgDisplayed());
-		Assert.assertTrue(homePage.isUserIDDisplayed(userInfor));
+		log.info("Login - Step 06: Verify welcome msg and userID displayed");
+		verifyTrue(homePage.isWelcomeMsgDisplayed());
+		verifyTrue(homePage.isUserIDDisplayed(userInfor));
 
 
 	}
 
 	@Test
 	public void TC_03_OpenMultiPage() {
-		Assert.assertTrue(homePage.isLoginFormUndisplayed());
-		System.out.println("Check framne");
-		Assert.assertTrue(homePage.isIframeUndisplayed());
+		loginPage = registerPage.openLoginPage(loginPageUrl);
+		Assert.assertTrue(loginPage.isLoginFormDisplayed());
+		loginPage.inputToUserIDTextbox(userInfor);
+		loginPage.inputToPasswordTextbox(passInfor);
+		homePage = loginPage.clickToLoginButton();
+
+		verifyTrue(homePage.isWelcomeMsgDisplayed());
+		verifyTrue(homePage.isUserIDDisplayed(userInfor));
 
 	}
 	

@@ -14,9 +14,11 @@ import org.testng.Reporter;
 public class AbstractTest {
 	private WebDriver driver;
 	protected final Log log;
+
 	protected AbstractTest() {
 		log = LogFactory.getLog(getClass());
 	}
+
 	protected WebDriver openMultiBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
@@ -24,8 +26,7 @@ public class AbstractTest {
 			System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
 			driver = new ChromeDriver();
 
-		} 
-		else if (browserName.equalsIgnoreCase("chromeheadless")) {
+		} else if (browserName.equalsIgnoreCase("chromeheadless")) {
 			System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("headless");
@@ -39,7 +40,7 @@ public class AbstractTest {
 		return driver;
 
 	}
-	
+
 	private boolean checkPassed(boolean condition) {
 		boolean pass = true;
 		try {
@@ -141,5 +142,4 @@ public class AbstractTest {
 		}
 	}
 
-	
 }

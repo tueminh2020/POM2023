@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel="false" name="BANK GURU">
+<suite parallel="false" name="BANK GURU" thread-count ="3">
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener
+			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
 
 
-<!-- 	<test name="Run on firefox"> -->
-<!-- 		<parameter name="browser" value="firefox" /> -->
-<!-- 		<classes> -->
-<!-- 			<class -->
-<!-- 				name="com.bankguru.account.Account_Level06_MultiBrowser_ParallelTesting" /> -->
-<!-- 		</classes> -->
-<!-- 	</test> -->
+	<!-- <test name="Run on firefox"> -->
+	<!-- <parameter name="browser" value="firefox" /> -->
+	<!-- <classes> -->
+	<!-- <class -->
+	<!-- name="com.bankguru.account.Account_Level06_MultiBrowser_ParallelTesting" 
+		/> -->
+	<!-- </classes> -->
+	<!-- </test> -->
 
 	<test name="Run on chrome">
 		<parameter name="browser" value="chrome" />
-
 		<classes>
-			<class
-				name="com.bankguru.account.Account_Level09_CheckUndisplayed_OverwriteTimeout" />
+			<class name="com.bankguru.account.Account_Common_RegisterToSystem" />
+			<class name="com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage" />
 		</classes>
 	</test>
 

@@ -1,0 +1,14 @@
+2023-06-21 16:41:29,323 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Register - Step 01: Verify login Form displayed
+2023-06-21 16:41:29,501 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Register - Step 02: Click to here link
+2023-06-21 16:41:29,683 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Register - Step 03: Vefiry register form displayed
+2023-06-21 16:41:33,346 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Register - Step 04: Input to emailID textbox
+2023-06-21 16:41:33,603 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Register - Step 05: Click to submit button
+2023-06-21 16:41:35,296 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Register - Step 06: Get ra userID and Password
+2023-06-21 16:41:43,165 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - Login - Step 02: Verify loginform displayed
+2023-06-21 16:41:43,264 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - ===PASSED==
+2023-06-21 16:41:43,264 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - Login - Step 03: Input to userID
+2023-06-21 16:41:43,985 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - Login - Step 04: Input to password
+2023-06-21 16:41:44,232 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - Login - Step 05: Click to Login Button
+2023-06-21 16:41:45,539 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - Login - Step 06: Verify welcome msg and userID displayed
+2023-06-21 16:41:45,806 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - ===PASSED==
+2023-06-21 16:41:45,900 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - ===PASSED==
