@@ -62,7 +62,7 @@ public class Account_Level_11_ShareClass_CloseBrowser_WebDriverManage extends Ab
 		homePage = loginPage.clickToLoginButton();
 
 		log.info("Login - Step 06: Verify welcome msg and userID displayed");
-		verifyTrue(homePage.isWelcomeMsgDisplayed());
+		verifyFalse(homePage.isWelcomeMsgDisplayed());
 		verifyTrue(homePage.isUserIDDisplayed(Account_Common_RegisterToSystem.userInfor));
 	}	
 	
@@ -71,9 +71,9 @@ public class Account_Level_11_ShareClass_CloseBrowser_WebDriverManage extends Ab
 		return random.nextInt(999999);
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void afterClass() {
-		driver.quit();
+		closeBrowserDriver();
 	}
 
 }

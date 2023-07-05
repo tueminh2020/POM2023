@@ -65,4 +65,9 @@ public class Account_Common_RegisterToSystem extends AbstractTest {
 		Random random = new Random();
 		return random.nextInt(999999);
 	}
+	
+	@AfterTest(alwaysRun = true)
+	public void afterClass() {
+		closeBrowserDriver();
+	}
 }

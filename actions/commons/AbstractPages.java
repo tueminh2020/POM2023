@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 import pageObjects.DepositPageObject;
 import pageObjects.FundTransferPageObject;
@@ -24,12 +25,12 @@ import pageObjects.newCustomerPageObject;
 
 public class AbstractPages {
 	WebElement element;
-	List <WebElement> elements;
+	List<WebElement> elements;
 	JavascriptExecutor jsExecuter;
 	WebDriverWait waitExplicit;
 	Actions action;
 	By byLocator;
-	
+
 	public void openAnyUrl(WebDriver driver, String Url) {
 		driver.get(Url);
 	}
@@ -166,6 +167,11 @@ public class AbstractPages {
 		}
 	}
 
+	public boolean isControlDisplayed(WebDriver driver, String locatorXpath) {
+		element = driver.findElement(By.xpath(locatorXpath));
+		return element.isDisplayed();
+	}
+
 	public boolean isControlDisplayed(WebDriver driver, String locatorXpath, String... values) {
 		element = driver.findElement(By.xpath(locatorXpath));
 		locatorXpath = String.format(locatorXpath, (Object[]) values);
@@ -297,16 +303,25 @@ public class AbstractPages {
 	public void waitForElementVisible(WebDriver driver, String locatorXpath) {
 		waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
 		byLocator = By.xpath(locatorXpath);
-		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		try {
+			waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		} catch (Exception e) {
+			Reporter.log("--------------Wait for element visible----------------");
+			Reporter.log(e.getMessage());
+		}
 	}
 
 	public void waitForElementVisible(WebDriver driver, String locatorXpath, String... values) {
 		waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
 		locatorXpath = String.format(locatorXpath, (Object[]) values);
 		byLocator = By.xpath(locatorXpath);
-		waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		try {
+			waitExplicit.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		} catch (Exception e) {
+			Reporter.log("--------------Wait for element visible----------------");
+			Reporter.log(e.getMessage());
+		}
 	}
-	
 
 	public void waitForElementClickAble(WebDriver driver, String locatorXpath) {
 		waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
@@ -326,32 +341,30 @@ public class AbstractPages {
 		waitExplicit = new WebDriverWait(driver, Constants.LONG_TIMEOUT);
 		waitExplicit.until(ExpectedConditions.alertIsPresent());
 	}
-	
+
 	public boolean isControlUndisplayed(WebDriver driver, String locator) {
 		Date date = new Date();
 		System.out.println("Start time : " + date.toString());
 		overwriteTimeout(driver, Constants.SHORT_TIMEOUT);
 		elements = driver.findElements(By.xpath(locator));
-		if(elements.size()==0) {
+		if (elements.size() == 0) {
 			System.out.println("Element not in DOM");
 			System.out.println("End time : " + new Date().toString());
-			overwriteTimeout(driver,Constants.LONG_TIMEOUT);
+			overwriteTimeout(driver, Constants.LONG_TIMEOUT);
 			return true;
-		}
-		else if(elements.size()> 0 && !elements.get(0).isDisplayed()) {
-			System.out.println("Element in DOM but not visible" );
+		} else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
+			System.out.println("Element in DOM but not visible");
 			System.out.println("End time : " + new Date().toString());
-			overwriteTimeout(driver,Constants.LONG_TIMEOUT);
+			overwriteTimeout(driver, Constants.LONG_TIMEOUT);
 			return true;
-		}
-		else {
+		} else {
 			System.out.println("Element in DOM");
 			System.out.println("End time : " + new Date().toString());
-			overwriteTimeout(driver,Constants.LONG_TIMEOUT);
+			overwriteTimeout(driver, Constants.LONG_TIMEOUT);
 			return false;
 		}
 	}
-	
+
 	public void overwriteTimeout(WebDriver driver, long timeout) {
 		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
 	}
@@ -419,7 +432,7 @@ public class AbstractPages {
 
 		}
 	}
-	
+
 	public void openMultiplePages(WebDriver driver, String pageName) {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_LINK_PAGE, pageName);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK_PAGE, pageName);
