@@ -53,8 +53,8 @@ public class AbstractPages {
 	}
 
 	public String getTextOfElement(WebDriver driver, String locatorXpath, String... values) {
-		element = driver.findElement(By.xpath(locatorXpath));
 		locatorXpath = String.format(locatorXpath, (Object[]) values);
+		element = driver.findElement(By.xpath(locatorXpath));
 		return element.getText();
 	}
 
@@ -437,5 +437,14 @@ public class AbstractPages {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_LINK_PAGE, pageName);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK_PAGE, pageName);
 	}
+	
+	public String getTextOfSuccessFormCreateNewCus(WebDriver driver, String coloumnName) {
+		return getTextOfElement(driver, AbstractPageUI.DYNAMIC_TEXT_IN_TABLE_AFTER_SUCCESS, coloumnName);
+	}
+
+	public void inputToDynamicTextbox(WebDriver driver, String valueInput, String textboxInput) {
+		sendKeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_AND_SUBMIT_BUTTON, valueInput, textboxInput);
+	}
+
 
 }

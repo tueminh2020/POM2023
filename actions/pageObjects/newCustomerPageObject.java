@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import bankguru.homePageUI;
 import bankguru.newCustomerUI;
 import commons.AbstractPages;
 import commons.PageFactoryManage;
@@ -257,4 +256,13 @@ public class newCustomerPageObject extends AbstractPages {
 	public homePageObject clickToManagerLink() {
 		return PageFactoryManage.getHomePage(driver);
 	}
+
+	public void inputToAddressbox(String valueInput) {
+		sendKeyToElement(driver, newCustomerUI.ADDRESS_BOX, valueInput);
+	}
+
+	public boolean isCustomerRegisterSuccessDisplayed() {
+		return isControlDisplayed(driver, newCustomerUI.REGIS_SUCCESS_MSG);
+	}
+
 }

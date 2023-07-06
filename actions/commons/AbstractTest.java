@@ -26,8 +26,8 @@ public class AbstractTest {
 		if (browserName.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		} else if (browserName.equalsIgnoreCase("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			//System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
+//			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver", ".\\resources\\chromedriver.exe");
 			driver = new ChromeDriver();
 
 		} else if (browserName.equalsIgnoreCase("chromeheadless")) {

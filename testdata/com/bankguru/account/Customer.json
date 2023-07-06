@@ -1,0 +1,13 @@
+{
+	"customerName": "Huyen Tran",
+	"gender": "male",
+	"dateOfBirth": "2010-10-10",
+	"address": "123 Nguyen Van Huyen",
+	"city": "Ha Noi",
+	"state": "Texas",
+	"pin": "000000",
+	"phone": "098756324",
+	"email": "john",
+	"password": "123456",
+	"createSuccessMsg": ""
+}

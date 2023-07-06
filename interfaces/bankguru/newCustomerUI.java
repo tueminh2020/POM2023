@@ -54,7 +54,9 @@ public class newCustomerUI {
 	public static final String ERR_MSG_PASSWORD_TEXTBOX = "//label[(text()='Password must not be blank')]";
 	public static final String SUBMIT_BUTTON = "//input[@name='sub']";
 	
-	
+	public static final String ADDRESS_BOX = "//textarea[@name='addr']";
+	public static final String REGIS_SUCCESS_MSG ="//p[text()='Customer Registered Successfully!!!']";
+
 	//Successul Customer Created
 	public static final String CUSTOMER_ID ="//td[text()='Customer ID']//following-sibling::td";
 }

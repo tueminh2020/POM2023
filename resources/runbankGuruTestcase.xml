@@ -2,33 +2,18 @@
 <suite parallel="false" name="BANK GURU" >
 	<listeners>
 		<listener class-name="org.uncommons.reportng.HTMLReporter" />
-		<listener
-			class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="commons.MethodListener" />
+		
 	</listeners>
 
-
-	<!-- <test name="Run on firefox"> -->
-	<!-- <parameter name="browser" value="firefox" /> -->
-	<!-- <classes> -->
-	<!-- <class -->
-	name="com.bankguru.account.Account_Level06_MultiBrowser_ParallelTesting" 
-<!-- 		/> -->
-	<!-- </classes> -->
-	<!-- </test> -->
 
 	<test name="Run on chrome">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.bankguru.account.Account_Common_RegisterToSystem" />
-			<class name="com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage" />
+			<class name="com.bankguru.account.Account_Level_15_RetryTestFail" />
 		</classes>
 	</test>
 	
-	<!-- <test name="Run on chromeHeadless"> -->
-	<!-- <parameter name="browser" value ="chromeheadless"/> -->
-	<!-- <classes> -->
-	<!-- <class name="com.bankguru.account.Account_Level06_MultiBrowser_ParallelTesting" 
-		/> -->
-	<!-- </classes> -->
-	<!-- </test> -->
 </suite>

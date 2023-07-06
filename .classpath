@@ -44,5 +44,6 @@
 	<classpathentry kind="lib" path="lib/snakeyaml-1.15.jar"/>
 	<classpathentry kind="lib" path="lib/slf4j-api-1.7.24.jar"/>
 	<classpathentry kind="lib" path="lib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.9.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

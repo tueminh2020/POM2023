@@ -7,3 +7,5 @@ encoding//testcases/com/bankguru/account/Account_Level_09_CheckUndisplayed_Overw
 encoding//testcases/com/bankguru/account/Account_Level_10_Assert_Verify_Log_Report.java=UTF-8
 encoding//testcases/com/bankguru/account/Account_Level_11_ShareClass_CloseBrowser_WebDriverManage.java=UTF-8
 encoding//testcases/com/bankguru/account/Account_Level_15_ManageTestData_JavaClass.java=UTF-8
+encoding//testcases/com/bankguru/account/Account_Level_15_ManageTestData_Json.java=UTF-8
+encoding//testcases/com/bankguru/account/Account_Level_15_RetryTestFail.java=UTF-8

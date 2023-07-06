@@ -4,22 +4,13 @@ import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 
 import commons.AbstractTest;
 import commons.PageFactoryManage;
-import pageObjects.DepositPageObject;
-import pageObjects.FundTransferPageObject;
-import pageObjects.NewAccountPageObject;
-import pageObjects.editCustomerPageObject;
-import pageObjects.homePageObject;
 import pageObjects.loginPageObject;
-import pageObjects.newCustomerPageObject;
 import pageObjects.registerPageObject;
 
 public class Account_Common_RegisterToSystem extends AbstractTest {

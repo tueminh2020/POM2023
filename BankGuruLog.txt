@@ -1,5 +1,0 @@
-2023-06-22 11:40:40,927 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Register - Step 01: Verify login Form displayed
-2023-06-22 11:41:41,072 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - OS name = windows 10
-2023-06-22 11:41:41,073 INFO  com.bankguru.account.Account_Level_11_ShareClass_CloseBrowser_WebDriverManage - Cannot invoke "Object.toString()" because "this.driver" is null
-2023-06-22 11:41:41,080 INFO  com.bankguru.account.Account_Common_RegisterToSystem - OS name = windows 10
-2023-06-22 11:41:41,080 INFO  com.bankguru.account.Account_Common_RegisterToSystem - Driver instance name = chromedriver: chrome on xp (3421d167120b20e001e7057eaee95d01)
